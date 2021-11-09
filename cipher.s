@@ -12,8 +12,8 @@
 
 	.text 				// start of text segment
 
-	.global encode			// make encode global for linking to
-	.type	encode, %function	// define encode to be a function
+	.global encrypt			// make encrypt global for linking to
+	.type	encrypt, %function	// define encrypt to be a function
 	.equ	FP_OFF, 4		// fp offset distance from sp
 
 encrypt:
@@ -35,10 +35,10 @@ encrypt:
 	bx	lr			// return to caller
 
 	// function footer
-	.size	encode, (. - encode)	// set size for function
+	.size	encrypt, (. - encrypt)	// set size for function
 
-	.global decode			// make encode global for linking to
-	.type	decode, %function	// define encode to be a function
+	.global decrypt			// make encrypt global for linking to
+	.type	decrypt, %function	// define encrypt to be a function
 	.equ	FP_OFF, 4		// fp offset distance from sp
 
 decrypt:
@@ -60,7 +60,7 @@ decrypt:
 	bx	lr			// return to caller
 
 	// function footer
-	.size	decode, (. - decode)	// set size for function
+	.size	decrypt, (. - decrypt)	// set size for function
 
 	// file footer
 	.section .note.GNU-stack,"",%progbits // stack/data non-exec (linker)
